@@ -1,0 +1,12 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tr {
+  border-bottom: 10px solid #fff;
+}
+
+.table td {
+  padding: 10px;
+}

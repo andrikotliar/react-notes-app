@@ -1,0 +1,36 @@
+{
+  "specificClass": "notes",
+  "headers": [
+    {
+      "type": "empty"
+    },
+    {
+      "type": "title",
+      "title": "Name"
+    },
+    {
+      "type": "title",
+      "title": "Created"
+    },
+    {
+      "type": "title",
+      "title": "Category"
+    },
+    {
+      "type": "title",
+      "title": "Content"
+    },
+    {
+      "type": "title",
+      "title": "Dates"
+    },
+    {
+      "type": "icon",
+      "iconSrc": "/images/icons/archiveWhite.svg"
+    },
+    {
+      "type": "icon",
+      "iconSrc": "/images/icons/removeWhite.svg"
+    }
+  ]
+}
