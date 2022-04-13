@@ -1,0 +1,25 @@
+.table-row__title {
+  font-weight: bold;
+}
+
+.table-row__content {
+  width: 400px;
+}
+
+.table-row__button {
+  display: block;
+  color: #777;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.table-row.is-archived {
+  opacity: 0.5;
+}
