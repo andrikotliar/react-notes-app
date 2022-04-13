@@ -25,6 +25,9 @@
       "title": "Dates"
     },
     {
+      "type": "empty"
+    },
+    {
       "type": "icon",
       "iconSrc": "/images/icons/archiveWhite.svg"
     },
