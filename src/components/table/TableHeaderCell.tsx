@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TableHeaderItem } from "../../types/tableInterfaces";
+import { TableHeaderItem } from "../../types/tables";
 
 const TableHeaderCell : FC<{header: TableHeaderItem}> = ({header}) => {
 
