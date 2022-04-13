@@ -1,11 +1,21 @@
 import notesTableStructure from "../data/notesTableStructure.json";
-import ContainerTable from "../container/ContainerTable";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+
+import Table from "../container/Table";
+import CreateNoteButton from "../components/buttons/CreateNoteButton";
+import Modal from "../container/Modal";
 
 function App() {
+  const { notes } = useTypedSelector(state => state.notes);
+
   return (
-    <div className="wrapper">
-      <ContainerTable structure={notesTableStructure} />
-    </div>
+    <>
+      <div className="wrapper">
+        <Table notes={notes} structure={notesTableStructure} />
+        <CreateNoteButton />
+      </div>
+      <Modal />
+    </>
   )
 }
 
