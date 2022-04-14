@@ -1,7 +1,9 @@
 import { ModalState, ModalAction, ModalActionTypes } from "../../types/modal"
 
 const initialState : ModalState = {
-  modal: false
+  modal: false,
+  mode: "save",
+  id: 0
 }
 
 export const modalReducer = (state = initialState, action: ModalAction) : ModalState => {
@@ -9,8 +11,9 @@ export const modalReducer = (state = initialState, action: ModalAction) : ModalS
     case ModalActionTypes.SHOW_MODAL:
       document.body.style.overflow = "hidden";
       return {
-        ...state,
-        modal: true
+        modal: true,
+        mode: action.payload.mode,
+        id: action.payload.id
       }
     case ModalActionTypes.HIDE_MODAL:
       document.body.style.overflow = "";
