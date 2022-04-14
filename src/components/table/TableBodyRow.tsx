@@ -11,7 +11,7 @@ import "../../styles/table/table-body-row.css";
 
 const TableBodyRow : FC<{data: NoteType, structure: TableBodyTypes}> = ({ data, structure }) => {
   return (
-    <tr className="table__row table-row">
+    <tr className="table__row table-row" data-status={data.active}>
       {structure.icons && <TableBodyIconCell category={data.category} />}
       <TableBodyTextCell
         textFields={structure.textFields}
