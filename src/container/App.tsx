@@ -12,20 +12,23 @@ import Modal from "./Modal";
 import CreateNoteButton from "../components/buttons/CreateNoteButton";
 
 function App() {
-  const { notes, statistic, categories } = useTypedSelector(state => state.notes);
+  const { notes, statistic, categories, showArchive } = useTypedSelector(state => state.notes);
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(initStatistic(categories, notes));
   }, [])
 
-  const activeNotes = notes.filter(note => note.active);
-  const reversedNotes = activeNotes.reverse();
+  let displayedNotes = notes;
+
+  if(!showArchive) {
+    displayedNotes = notes.filter(note => note.active);
+  }
 
   return (
     <>
       <div className="wrapper">
-        <Table data={reversedNotes} structure={notesTableStructure} />
+        <Table data={displayedNotes} structure={notesTableStructure} />
         <CreateNoteButton />
         {statistic.length && <Table data={statistic} structure={statisticTableStructure} /> }
       </div>
