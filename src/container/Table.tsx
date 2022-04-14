@@ -5,17 +5,13 @@ import { TableProps } from "../types/tables";
 
 import "../styles/table/table.css";
 
-const Table: FC<TableProps> = ({notes, structure}) => {
-  const {specificClass, headers} = structure;
-
-  const activeNotes = notes.filter(note => note.active);
-  const reversedNotes = activeNotes.reverse();
+const Table: FC<TableProps> = ({data, structure}) => {
+  const {specificClass, headers, body} = structure;
 
   return (
     <table className={`table ${specificClass}`}>
       <TableHeader headers={headers} />
-      <TableBody notes={reversedNotes} />
-      <tbody></tbody>
+      <TableBody data={data} body={body} />
     </table>
   )
 }
