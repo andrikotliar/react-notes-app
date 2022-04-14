@@ -1,6 +1,11 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 70px;
+}
+
+.table:first-child {
+  margin-top: 0;
 }
 
 .table tr {

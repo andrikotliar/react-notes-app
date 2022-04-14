@@ -15,7 +15,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.note-popup {
+.modal__content {
   position: relative;
   background-color: #fff;
   padding: 50px 30px 30px 30px;
@@ -25,51 +25,7 @@
   overflow-y: auto;
 }
 
-.note-popup h3 {
-  color: #777;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.note-popup__title {
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-
-.note-popup__categories {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.note-popup__category {
-  background-color: #f2f2f2;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.note-popup__content {
-  display: block;
-  font-family: inherit;
-  font-size: inherit;
-  resize: none;
-  width: 400px;
-  height: 250px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.note-popup__save {
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.note-popup__close {
+.modal__close {
   position: absolute;
   top: 10px;
   right: 20px;
