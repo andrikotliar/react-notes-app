@@ -7,7 +7,7 @@ import ModalForm from "../components/forms/ModalForm";
 import "../styles/modal/modal.css";
 
 const Modal = () => {
-  const { modal } = useTypedSelector(state => state.modal);
+  const { modal, mode, id } = useTypedSelector(state => state.modal);
   const dispatch = useDispatch();
 
   const onCloseModal = () => {
@@ -22,7 +22,7 @@ const Modal = () => {
     <div className="modal" id="modal">
       <div className="modal__overlay">
         <div className="modal__content">
-          <ModalForm />
+          <ModalForm mode={mode} id={id} />
           <button aria-label="Close the modal" className="modal__close" onClick={onCloseModal}>
             ✖
           </button>
