@@ -26,16 +26,9 @@
     },
     {
       "type": "empty"
-    },
-    {
-      "type": "icon",
-      "iconSrc": "/images/icons/archiveWhite.svg"
-    },
-    {
-      "type": "icon",
-      "iconSrc": "/images/icons/removeWhite.svg"
     }
   ],
+  "headerIcons": true,
   "body": {
     "icons": true,
     "textFields": ["title", "created", "category", "content"],

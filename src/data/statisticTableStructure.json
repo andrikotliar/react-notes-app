@@ -17,6 +17,7 @@
       "title": "Archived"
     }
   ],
+  "headerIcons": false,
   "body": {
     "icons": true,
     "textFields": ["category", "activeNotes", "archivedNotes"]
