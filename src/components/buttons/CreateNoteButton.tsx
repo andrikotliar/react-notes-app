@@ -7,7 +7,7 @@ const CreateNoteButton = () => {
   const dispatch = useDispatch();
 
   const onShowModal = () => {
-    dispatch(showModalAction())
+    dispatch(showModalAction("save", 0))
   }
 
   return (
