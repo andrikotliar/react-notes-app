@@ -16,6 +16,7 @@ const TableBodyButtonCells : FC<TableButtonsProps> = ({ id, title, content, cate
     <>
       <td>
         <TableEditButton
+          id={id}
           title={title}
           content={content}
           category={category}
