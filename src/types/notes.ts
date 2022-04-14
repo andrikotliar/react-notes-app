@@ -7,14 +7,25 @@ export interface NoteType {
   active: boolean;
 }
 
+export interface StatisticType {
+  id: number;
+  category: string;
+  activeNotes: number;
+  archivedNotes: number;
+}
+
 export interface NotesState {
-  notes: NoteType[]
+  notes: NoteType[];
+  categories: string[];
+  statistic: StatisticType[]
 }
 
 export enum NotesActionTypes {
   ADD_NOTE = "ADD_NOTE",
   ARCHIVE_NOTE = "ARCHIVE_NOTE",
-  REMOVE_NOTE = "REMOVE_NOTE"
+  EDIT_NOTE = "EDIT_NOTE",
+  REMOVE_NOTE = "REMOVE_NOTE",
+  INIT_STATISTIC = "INIT_STATISTIC"
 }
 
 export interface AddNoteAction {
@@ -27,9 +38,19 @@ export interface ArchiveNoteAction {
   payload: number
 }
 
+export interface EditNoteAction {
+  type: NotesActionTypes.EDIT_NOTE;
+  payload: number
+}
+
 export interface RemoveNoteAction {
   type: NotesActionTypes.REMOVE_NOTE;
   payload: number
 }
 
-export type NotesAction = AddNoteAction | ArchiveNoteAction | RemoveNoteAction;
+export interface InitiStatisticAction {
+  type: NotesActionTypes.INIT_STATISTIC;
+  payload: any[]
+}
+
+export type NotesAction = AddNoteAction | ArchiveNoteAction | EditNoteAction | RemoveNoteAction | InitiStatisticAction;
