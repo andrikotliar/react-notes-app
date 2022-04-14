@@ -1,0 +1,24 @@
+{
+  "specificClass": "statistic",
+  "headers": [
+    {
+      "type": "empty"
+    },
+    {
+      "type": "title",
+      "title": "Note Category"
+    },
+    {
+      "type": "title",
+      "title": "Active"
+    },
+    {
+      "type": "title",
+      "title": "Archived"
+    }
+  ],
+  "body": {
+    "icons": true,
+    "textFields": ["category", "activeNotes", "archivedNotes"]
+  }
+}
