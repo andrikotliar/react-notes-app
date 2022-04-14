@@ -1,8 +1,11 @@
 import notes from "../../data/notes.json";
-import { NotesState, NotesActionTypes, NotesAction, NoteType } from '../../types/notes';
+import { NotesState, NotesActionTypes, NotesAction } from '../../types/notes';
+import { updatedStatistic } from "../../utils/updateStatistic";
 
 const initialState : NotesState = {
-  notes
+  notes,
+  categories: ["Idea", "Task", "Random Thought"],
+  statistic: []
 }
 
 export const notesReducer = (state = initialState, action: NotesAction) : NotesState => {
@@ -10,14 +13,18 @@ export const notesReducer = (state = initialState, action: NotesAction) : NotesS
     case NotesActionTypes.ADD_NOTE:
       return {
         ...state,
+        statistic: updatedStatistic(
+          state.categories,
+          [...state.notes, action.payload]
+        ),
         notes: [
           ...state.notes,
           action.payload
         ]
       }
     case NotesActionTypes.ARCHIVE_NOTE:
-      const copyNotes = [...state.notes];
-      const archivedNote = copyNotes.find(
+      const copyNotesForArchive = [...state.notes];
+      const archivedNote = copyNotesForArchive.find(
         note => note.id == action.payload
       );
 
@@ -25,7 +32,15 @@ export const notesReducer = (state = initialState, action: NotesAction) : NotesS
 
       return {
         ...state,
-        notes: copyNotes
+        statistic: updatedStatistic(
+          state.categories,
+          copyNotesForArchive
+        ),
+        notes: copyNotesForArchive
+      }
+    case NotesActionTypes.EDIT_NOTE:
+      return {
+        ...state
       }
     case NotesActionTypes.REMOVE_NOTE:
       const filteredNotes = state.notes.filter(note =>
@@ -34,7 +49,16 @@ export const notesReducer = (state = initialState, action: NotesAction) : NotesS
 
       return {
         ...state,
+        statistic: updatedStatistic(
+          state.categories,
+          filteredNotes
+        ),
         notes: filteredNotes
+      }
+    case NotesActionTypes.INIT_STATISTIC:
+      return {
+        ...state,
+        statistic: action.payload
       }
     default:
       return state;
