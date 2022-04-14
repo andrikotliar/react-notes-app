@@ -1,0 +1,39 @@
+{
+  "specificClass": "notes",
+  "headers": [
+    {
+      "type": "empty"
+    },
+    {
+      "type": "title",
+      "title": "Name"
+    },
+    {
+      "type": "title",
+      "title": "Created"
+    },
+    {
+      "type": "title",
+      "title": "Category"
+    },
+    {
+      "type": "title",
+      "title": "Content"
+    },
+    {
+      "type": "title",
+      "title": "Dates"
+    },
+    {
+      "type": "empty"
+    }
+  ],
+  "headerIcons": true,
+  "body": {
+    "icons": true,
+    "textFields": ["title", "created", "category", "content"],
+    "dates": true,
+    "statistic": false,
+    "buttons": true
+  }
+}

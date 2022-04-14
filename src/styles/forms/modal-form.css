@@ -1,0 +1,50 @@
+.modal-form {
+  width: 100%;
+}
+
+.modal-form h3 {
+  color: #777;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.modal-form__title {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-form__categories {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-form__category {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.modal-form__content {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  resize: none;
+  width: 400px;
+  height: 250px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-form__save {
+  padding: 5px 10px;
+  cursor: pointer;
+}
