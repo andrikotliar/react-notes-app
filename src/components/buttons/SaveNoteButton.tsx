@@ -1,24 +1,27 @@
 import { FC, MouseEvent } from "react";
 import { useDispatch } from "react-redux";
-import { addNoteAction } from "../../store/actions/notesActions";
-import { NoteType } from "../../types/notes";
+import { addNoteAction, editNoteAction } from "../../store/actions/notesActions";
 import { closeModalAction } from "../../store/actions/modalActions";
 import { clearModalFormData } from "../../store/actions/modalFormActions";
 
-const SaveNoteButton : FC<{ note: NoteType }> = ({ note }) => {
+const SaveNoteButton : FC<{ note: {}, mode: string, id: number }> = ({ note, mode, id }) => {
   const dispatch = useDispatch();
 
   const onSaveNote = (event: MouseEvent) => {
     event.preventDefault();
-    dispatch(addNoteAction(note));
+    if(mode === "save") {
+      dispatch(addNoteAction(note));
+    }
+    if(mode === "update") {
+      dispatch(editNoteAction(id, note));
+    }
     dispatch(closeModalAction());
     dispatch(clearModalFormData());
   }
 
   return (
     <button
-      id="save-note"
-      className="modal-form__save save-note"
+      className="modal-form__save"
       onClick={onSaveNote}
     >
       Save note
