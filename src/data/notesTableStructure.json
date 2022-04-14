@@ -35,5 +35,12 @@
       "type": "icon",
       "iconSrc": "/images/icons/removeWhite.svg"
     }
-  ]
+  ],
+  "body": {
+    "icons": true,
+    "textFields": ["title", "created", "category", "content"],
+    "dates": true,
+    "statistic": false,
+    "buttons": true
+  }
 }
