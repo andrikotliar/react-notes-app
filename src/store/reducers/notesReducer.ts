@@ -5,7 +5,8 @@ import { updatedStatistic } from "../../utils/updateStatistic";
 const initialState : NotesState = {
   notes,
   categories: ["Idea", "Task", "Random Thought"],
-  statistic: []
+  statistic: [],
+  showArchive: false
 }
 
 export const notesReducer = (state = initialState, action: NotesAction) : NotesState => {
@@ -25,10 +26,14 @@ export const notesReducer = (state = initialState, action: NotesAction) : NotesS
     case NotesActionTypes.ARCHIVE_NOTE:
       const copyNotesForArchive = [...state.notes];
       const archivedNote = copyNotesForArchive.find(
-        note => note.id == action.payload
+        note => note.id === action.payload
       );
 
-      if(archivedNote) archivedNote.active = false;
+      if(archivedNote) {
+        archivedNote.active ?
+          archivedNote.active = false :
+          archivedNote.active = true
+      };
 
       return {
         ...state,
@@ -39,14 +44,34 @@ export const notesReducer = (state = initialState, action: NotesAction) : NotesS
         notes: copyNotesForArchive
       }
     case NotesActionTypes.EDIT_NOTE:
+      const copyNotesForEdit = [...state.notes];
+      const newData = action.payload.data;
+      const noteForEdit = copyNotesForEdit.find(
+        note => note.id === action.payload.id
+      );
+
+      if(noteForEdit) {
+        noteForEdit.title = newData.title;
+        noteForEdit.content = newData.content;
+        noteForEdit.category = newData.category;
+      }
       return {
-        ...state
+        ...state,
+        statistic: updatedStatistic(
+          state.categories,
+          copyNotesForEdit
+        ),
+        notes: copyNotesForEdit
+      }
+    case NotesActionTypes.INIT_STATISTIC:
+      return {
+        ...state,
+        statistic: action.payload
       }
     case NotesActionTypes.REMOVE_NOTE:
       const filteredNotes = state.notes.filter(note =>
         note.id !== action.payload
       );
-
       return {
         ...state,
         statistic: updatedStatistic(
@@ -55,10 +80,12 @@ export const notesReducer = (state = initialState, action: NotesAction) : NotesS
         ),
         notes: filteredNotes
       }
-    case NotesActionTypes.INIT_STATISTIC:
+    case NotesActionTypes.SHOW_ARCHIVED:
+      const copyNotesForShowArchived = [...state.notes];
       return {
         ...state,
-        statistic: action.payload
+        notes: copyNotesForShowArchived,
+        showArchive: action.payload
       }
     default:
       return state;
