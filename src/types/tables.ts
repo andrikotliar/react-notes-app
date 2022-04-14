@@ -1,7 +1,6 @@
 export interface TableHeaderItem {
   type: string;
   title?: string;
-  iconSrc?: string;
 }
 
 export interface TableBodyTypes {
@@ -15,7 +14,8 @@ export interface TableBodyTypes {
 export interface TableStructure {
   specificClass: string;
   headers: TableHeaderItem[];
-  body: TableBodyTypes
+  headerIcons: boolean;
+  body: TableBodyTypes;
 }
 
 export interface TableProps {

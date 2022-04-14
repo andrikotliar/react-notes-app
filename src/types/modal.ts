@@ -1,5 +1,7 @@
 export interface ModalState {
-  modal: boolean
+  modal: boolean,
+  mode: string,
+  id: number
 }
 
 export enum ModalActionTypes {
@@ -8,7 +10,11 @@ export enum ModalActionTypes {
 }
 
 export interface ShowModalAction {
-  type: ModalActionTypes.SHOW_MODAL
+  type: ModalActionTypes.SHOW_MODAL,
+  payload: {
+    mode: string,
+    id: number
+  }
 }
 
 export interface HideModalAction {

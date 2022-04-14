@@ -17,7 +17,8 @@ export interface StatisticType {
 export interface NotesState {
   notes: NoteType[];
   categories: string[];
-  statistic: StatisticType[]
+  statistic: StatisticType[],
+  showArchive: boolean
 }
 
 export enum NotesActionTypes {
@@ -25,7 +26,8 @@ export enum NotesActionTypes {
   ARCHIVE_NOTE = "ARCHIVE_NOTE",
   EDIT_NOTE = "EDIT_NOTE",
   REMOVE_NOTE = "REMOVE_NOTE",
-  INIT_STATISTIC = "INIT_STATISTIC"
+  INIT_STATISTIC = "INIT_STATISTIC",
+  SHOW_ARCHIVED = "SHOW_ARCHIVED"
 }
 
 export interface AddNoteAction {
@@ -40,7 +42,14 @@ export interface ArchiveNoteAction {
 
 export interface EditNoteAction {
   type: NotesActionTypes.EDIT_NOTE;
-  payload: number
+  payload: {
+    id: number,
+    data: {
+      title: string,
+      content: string,
+      category: string
+    }
+  }
 }
 
 export interface RemoveNoteAction {
@@ -53,4 +62,9 @@ export interface InitiStatisticAction {
   payload: any[]
 }
 
-export type NotesAction = AddNoteAction | ArchiveNoteAction | EditNoteAction | RemoveNoteAction | InitiStatisticAction;
+export interface ShowArchivedAction {
+  type: NotesActionTypes.SHOW_ARCHIVED;
+  payload: boolean;
+}
+
+export type NotesAction = AddNoteAction | ArchiveNoteAction | EditNoteAction | RemoveNoteAction | InitiStatisticAction | ShowArchivedAction;
