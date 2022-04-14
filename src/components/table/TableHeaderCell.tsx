@@ -7,14 +7,6 @@ const TableHeaderCell : FC<{header: TableHeaderItem}> = ({header}) => {
     return <td></td>
   }
 
-  if(header.type == "icon") {
-    return (
-      <td>
-        <img src={header.iconSrc} alt="" />
-      </td>
-    )
-  }
-
   return <td>{header.title}</td>
 }
 
