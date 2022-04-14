@@ -6,6 +6,13 @@
   width: 400px;
 }
 
+.table-row__icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 1;
+}
+
 .table-row__button {
   display: block;
   color: #777;
@@ -20,6 +27,6 @@
   cursor: pointer;
 }
 
-.table-row.is-archived {
+.table__row[data-status="false"] {
   opacity: 0.5;
 }
