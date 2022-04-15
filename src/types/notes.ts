@@ -7,6 +7,15 @@ export interface NoteType {
   active: boolean;
 }
 
+export interface SaveNoteType {
+  id?: number;
+  title: string;
+  created?: string;
+  category: string;
+  content: string;
+  active?: boolean;
+}
+
 export interface StatisticType {
   id: number;
   category: string;

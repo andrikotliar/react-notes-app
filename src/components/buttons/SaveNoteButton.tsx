@@ -3,20 +3,38 @@ import { useDispatch } from "react-redux";
 import { addNoteAction, editNoteAction } from "../../store/actions/notesActions";
 import { closeModalAction } from "../../store/actions/modalActions";
 import { clearModalFormData } from "../../store/actions/modalFormActions";
+import { SaveNoteType } from "../../types/notes";
+import { validateParams } from "../../utils/validateParams";
 
-const SaveNoteButton : FC<{ note: {}, mode: string, id: number }> = ({ note, mode, id }) => {
+interface Props {
+  note: SaveNoteType;
+  mode: string;
+  id: number;
+  errors: (field: string) => void;
+}
+
+const SaveNoteButton : FC<Props> = ({ note, mode, id, errors }) => {
   const dispatch = useDispatch();
 
   const onSaveNote = (event: MouseEvent) => {
     event.preventDefault();
-    if(mode === "save") {
-      dispatch(addNoteAction(note));
+
+    const isTitleValide = validateParams("title", note.title);
+
+    if(isTitleValide) {
+      if(mode === "save") {
+        dispatch(addNoteAction(note));
+      }
+      if(mode === "update") {
+        dispatch(editNoteAction(id, note));
+      }
+      dispatch(closeModalAction());
+      dispatch(clearModalFormData());
     }
-    if(mode === "update") {
-      dispatch(editNoteAction(id, note));
+
+    if(!isTitleValide) {
+      errors("title");
     }
-    dispatch(closeModalAction());
-    dispatch(clearModalFormData());
   }
 
   return (
