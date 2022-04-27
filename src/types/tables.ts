@@ -12,7 +12,6 @@ export interface TableBodyTypes {
 }
 
 export interface TableStructure {
-  specificClass: string;
   headers: TableHeaderItem[];
   headerIcons: boolean;
   body: TableBodyTypes;
