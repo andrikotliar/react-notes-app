@@ -30,9 +30,7 @@ export const notesReducer = (state = initialState, action: NotesAction) : NotesS
       );
 
       if(archivedNote) {
-        archivedNote.active ?
-          archivedNote.active = false :
-          archivedNote.active = true
+        archivedNote.active = !archivedNote.active
       };
 
       return {
