@@ -4,12 +4,10 @@ import { TableHeaderItem } from "../types/tables";
 import TableHeaderCell from "../components/table/TableHeaderCell";
 import TableHeaderIcons from "../components/table/TableHeaderIcons";
 
-import "../styles/table/table-header.css";
-
 const TableHeader: FC<{headers: TableHeaderItem[], icons: boolean}> = ({headers, icons}) => {
   return (
-    <thead className="table__header">
-      <tr>
+    <thead className="text-white font-bold bg-cyan-600">
+      <tr className="border-b-8 border-white">
         {headers.map((header, index) =>
           <TableHeaderCell key={index} header={header} />
         )}

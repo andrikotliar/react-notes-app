@@ -3,7 +3,7 @@ import { TableHeaderItem } from "../../types/tables";
 
 const TableHeaderCell : FC<{header: TableHeaderItem}> = ({header}) => {
 
-  if(header.type == "empty") {
+  if(header.type === "empty") {
     return <td></td>
   }
 

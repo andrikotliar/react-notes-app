@@ -10,10 +10,6 @@ import { SaveNoteType } from "../../types/notes";
 import ModalFormCategories from "./ModalFormCategories";
 import SaveNoteButton from "../buttons/SaveNoteButton";
 
-import "../../styles/forms/modal-form.css";
-
-
-
 const ModalForm : FC<{ mode: string, id: number }> = ({ mode, id }) => {
   const dispatch = useDispatch();
   const { title, categories, content } = useTypedSelector(state => state.modalForm);
@@ -43,11 +39,11 @@ const ModalForm : FC<{ mode: string, id: number }> = ({ mode, id }) => {
   }
 
   return (
-    <form className="modal-form">
-      <input type="text" value={title} ref={titleInput} placeholder="Write note title..." className="modal-form__title" onChange={(e) => onValueChange("title", e.target.value)} />
-      <h3>Choose a category</h3>
+    <form className="w-full">
+      <input type="text" value={title} ref={titleInput} placeholder="Write note title..." className="input w-full p-2 mb-3" onChange={(e) => onValueChange("title", e.target.value)} />
+      <h3 className="text-stone-500 text-base mb-2">Choose a category</h3>
       <ModalFormCategories categories={categories} />
-      <textarea className="modal-form__content" value={content} placeholder="Write note text..." onChange={(e) => onValueChange("content", e.target.value)}></textarea>
+      <textarea className="input w-full h-[250px] p-2 mb-3 resize-none mt-5" value={content} placeholder="Write note text..." onChange={(e) => onValueChange("content", e.target.value)}></textarea>
       <SaveNoteButton note={note} mode={mode} id={id} errors={validationError} />
     </form>
   )

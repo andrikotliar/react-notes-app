@@ -12,7 +12,7 @@ const TableRemoveButton : FC<{ id: number }> = ({ id }) => {
   }
 
   return (
-    <button className="table-row__button table-row__remove" onClick={ () => onRemoveNote(id)}>
+    <button onClick={ () => onRemoveNote(id)}>
       <img src={removeIcon} alt="" />
     </button>
   )

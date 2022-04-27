@@ -12,7 +12,7 @@ const TableArchiveButton : FC<{id: number}> = ({ id }) => {
   }
 
   return (
-    <button className="table-row__button table-row__archive" onClick={ () => onArchiveNote(id)}>
+    <button onClick={ () => onArchiveNote(id)}>
       <img src={archiveIcon} alt="" />
     </button>
   )

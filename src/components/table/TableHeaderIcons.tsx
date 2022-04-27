@@ -17,12 +17,12 @@ const TableHeaderIcons = () => {
   return (
     <>
       <td>
-        <button className="table-row__button" onClick={onShowArchived}>
+        <button className="block w-8 h-8 mx-auto border-none bg-transparent cursor-pointer" onClick={onShowArchived}>
           <img src={archiveIcon} alt="" />
         </button>
       </td>
       <td>
-        <div className="table-row__icon">
+        <div className="w-8 h-8 mx-auto">
           <img src={removeIcon} alt="" />
         </div>
       </td>

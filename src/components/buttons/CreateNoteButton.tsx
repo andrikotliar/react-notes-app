@@ -1,8 +1,6 @@
 import { useDispatch } from "react-redux";
 import { showModalAction } from "../../store/actions/modalActions";
 
-import "../../styles/buttons/create-note-button.css";
-
 const CreateNoteButton = () => {
   const dispatch = useDispatch();
 
@@ -11,7 +9,7 @@ const CreateNoteButton = () => {
   }
 
   return (
-    <button className="create-note" onClick={onShowModal}>
+    <button className="btn" onClick={onShowModal}>
       Create Note
     </button>
   )

@@ -27,7 +27,7 @@ function App() {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="flex flex-col items-start p-4 md:p-8 lg:p-12">
         <Table data={displayedNotes} structure={notesTableStructure} />
         <CreateNoteButton />
         {statistic.length && <Table data={statistic} structure={statisticTableStructure} /> }

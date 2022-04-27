@@ -23,7 +23,7 @@ const TableEditButton : FC<TableEditButtonProps> = ({ id, title, content, catego
   }
 
   return (
-    <button className="table-row__button table-row__edit" onClick={() => onEditNote(title, content, category)}>
+    <button onClick={() => onEditNote(title, content, category)}>
       <img src={editIcon} alt="" />
     </button>
   )

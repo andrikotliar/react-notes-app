@@ -5,8 +5,10 @@ import ideaIcon from "../../images/icons/idea-icon.svg";
 import randomThoughtIcon from "../../images/icons/random-thought-icon.svg";
 
 const IconTableCell : FC<{icon: string}> = ({icon}) => (
-  <td className="table-row__category-icon">
-    <img src={icon} alt="" />
+  <td className="w-16 h-16">
+    <div className="w-10 h-10 mx-auto">
+      <img src={icon} alt="" />
+      </div>
   </td>
 );
 

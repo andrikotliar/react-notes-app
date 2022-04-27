@@ -11,10 +11,10 @@ const ModalFormCategories : FC<{categories: CategoryType[]}> = ({ categories }) 
   }
 
   return (
-    <div className="modal-form__categories">
+    <div className="flex flex-wrap gap-2 mb-3">
       {categories.map(category =>
-        <label className="modal-form__category" key={category.title}>
-          <input type="radio" value={category.title} name="category" className="note-category-input" checked={category.checked} onChange={() => onChangeCategory(category.title)}/>
+        <label className="flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-sm cursor-pointer" key={category.title}>
+          <input type="radio" value={category.title} name="category" checked={category.checked} onChange={() => onChangeCategory(category.title)}/>
           <span>{category.title}</span>
         </label>
       )}

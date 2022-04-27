@@ -39,7 +39,7 @@ const SaveNoteButton : FC<Props> = ({ note, mode, id, errors }) => {
 
   return (
     <button
-      className="modal-form__save"
+      className="btn"
       onClick={onSaveNote}
     >
       Save note

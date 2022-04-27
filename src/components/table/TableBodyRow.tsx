@@ -7,11 +7,9 @@ import TableBodyTextCell from "./TableBodyTextCell";
 import TableBodyDatesCell from "./TableBodyDatesCell";
 import TableBodyButtonCells from "./TableBodyButtonCells";
 
-import "../../styles/table/table-body-row.css";
-
 const TableBodyRow : FC<{data: NoteType, structure: TableBodyTypes}> = ({ data, structure }) => {
   return (
-    <tr className="table__row table-row" data-status={data.active}>
+    <tr className="bg-slate-100 border-b-8 border-white" data-status={data.active}>
       {structure.icons && <TableBodyIconCell category={data.category} />}
       <TableBodyTextCell
         textFields={structure.textFields}
